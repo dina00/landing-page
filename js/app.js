@@ -61,7 +61,7 @@ const navbar=document.querySelector("#navbar__list");
 const sections=document.querySelectorAll('section');
 
 
-// build the navigation bar
+// build the navigation bar by copying section attributes to our new new list elements
 var i;
 function buildNav(){
 for (i of sections){
@@ -102,12 +102,12 @@ function setToActive () {
                 i.classList.remove('your-active-class');
             }
         }
-        // set corresponding header style
-        const active = document.querySelector('li[data-nav="' + section.id + '"]');
+        // set the header style to list element
+        const active = document.querySelector('li[data-nav="' + section.id + '"]'); // get the corresponding list element
         active.classList.add('active__link'); // added to the css
-        // remove from other headers
-        const headers = document.querySelectorAll('.menu__link');
-        for ( i of headers) {
+        // remove from other list elements
+        const elements = document.querySelectorAll('.menu__link');
+        for ( i of elements) {
             if (i.dataset.nav != active.dataset.nav & i.classList.contains('active__link')) {
                 i.classList.remove('active__link');
             }
@@ -118,7 +118,7 @@ function setToActive () {
 // navigates to section when clicked in the navbar
 function scrollToClick() {
     navbar.addEventListener('click', function (event) {
-        const clicked = document.querySelector('#' + event.target.dataset.nav)
+        const clicked = document.querySelector('#' + event.target.dataset.nav) // get desired id
         clicked.scrollIntoView();
     })
 }
