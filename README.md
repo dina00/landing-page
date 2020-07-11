@@ -7,7 +7,7 @@ The starter project has some HTML and CSS styling to display a static version of
 ## Features:
 * Addition of a navigation bar containing the sections in the page.
 * Highlighting of the section being viewed.
-* Navigates to the section when clicked on the navigation bar.
+* Navigates to a section when clicked on in the navigation bar.
 ## Instructions:
 * Clone/Download Project.
 * Open index.html on a web browser.
