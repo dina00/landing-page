@@ -78,15 +78,22 @@ var selection;
 function getActiveSection(){
     for (i of sections){
         var bounding = i.getBoundingClientRect();
-        if (
-            bounding.top >= 0 &&
-            bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-        )
-        {
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+        const verticalInView = (bounding.top <= windowHeight) && ((bounding.top + bounding.height) >= 0);
+        const horizontalInView = (bounding.left <= windowWidth) && ((bounding.left + bounding.width) >= 0);
+        // if (
+        //     bounding.top >= 0 &&
+        //     bounding.left >= 0 &&
+        //     bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        //     bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        // )
+        //
+        //previous code depended that the section is 100% in view but that doesn't work on smaller screens, 
+        //checking if any part of section is in viewport instead.
+        if (verticalInView && horizontalInView){
             selection=i;
-        }
+         }
     }
     return selection;
 }
