@@ -91,6 +91,7 @@ function getActiveSection(){
         //
         //previous code depended that the section is 100% in view but that doesn't work on smaller screens, 
         //checking if any part of section is in viewport instead.
+        //credit to isAnyPartOfElementInViewport.js
         if (verticalInView && horizontalInView){
             selection=i;
          }
